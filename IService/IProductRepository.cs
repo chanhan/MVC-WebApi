@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IService
 {
-    using Models;
+    using Models.Business;
 
     public interface IProductRepository:IDisposable
     {

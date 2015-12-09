@@ -1,5 +1,6 @@
-﻿using Models;
+﻿using Models.Business;
 using System.Data.Entity;
+using Models.System;
 
 namespace Service
 {
@@ -23,6 +24,8 @@ namespace Service
         public DbSet<Order> Orders { get; set; }
         
         public DbSet<OrderDetail> OrderDetails { get; set; }
+
+        public DbSet<User> Users { get; set; }
 
     }
 }

@@ -10,7 +10,7 @@ namespace Service
 
     using IService;
 
-    using Models;
+    using Models.Business;
 
     public  class WebAPiContextInitializer:DropCreateDatabaseIfModelChanges<WebApiContext>
     {

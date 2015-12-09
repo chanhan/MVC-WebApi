@@ -11,27 +11,29 @@ using System.Web.Http;
 
 namespace WebApi.Controllers
 {
+    using System.Collections;
+
     using IService;
 
-    using Models;
+    using Models.Business;
 
     using Service;
 
     public class ProductController : ApiController
     {
-        static readonly IProductRepository repository = new ProductRepository();
+        static readonly IRepository<Product, int> rep = new Repository<Product, int>();
 
         // GET api/Product
         public IEnumerable<Product> GetAllProducts()
         {
-            IEnumerable<Product> products = repository.GetAll();
+            IEnumerable<Product> products = rep.GetAll();
             return products;
         }
 
         // GET api/Product/5
         public Product GetProductByID(int id)
         {
-            Product product = repository.Get(id);
+            Product product = rep.Get(id);
             if (product == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
@@ -41,7 +43,7 @@ namespace WebApi.Controllers
 
         public IEnumerable<Product> GetProductByCategory(string category)
         {
-            return repository.GetAll().Where(p => p.Category.Equals(category, StringComparison.OrdinalIgnoreCase));
+            return rep.GetAll().Where(p => p.Category.Equals(category, StringComparison.OrdinalIgnoreCase));
         }
         // PUT api/Product/5
         public HttpResponseMessage PutProduct(int id, Product product)
@@ -58,14 +60,14 @@ namespace WebApi.Controllers
 
             try
             {
-                if (repository.Update(product) <= 0) ; return Request.CreateErrorResponse(HttpStatusCode.NotFound, product.ToString());
+                if (rep.Update(product) <= 0)  
+                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, product.ToString()); 
+                return Request.CreateResponse(HttpStatusCode.OK);
             }
             catch (DbUpdateConcurrencyException ex)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
             }
-
-            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
         // POST api/Product
@@ -73,7 +75,8 @@ namespace WebApi.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (repository.Add(product) <= 0) ; return Request.CreateErrorResponse(HttpStatusCode.NotFound, product.ToString());
+                if (rep.Add(product) <= 0) 
+                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, product.ToString());
                 HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, product);
                 response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = product.Id }));
                 return response;
@@ -87,14 +90,14 @@ namespace WebApi.Controllers
         // DELETE api/Product/5
         public HttpResponseMessage DeleteProduct(int id)
         {
-            Product product = repository.Get(id);
+            Product product = rep.Get(id);
             if (product == null)
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound);
             }
             try
             {
-                if (repository.Remove(id) <= 0) ; return Request.CreateErrorResponse(HttpStatusCode.NotFound, product.ToString());
+                if (rep.Remove(id) <= 0) return Request.CreateErrorResponse(HttpStatusCode.NotFound, product.ToString());
             }
             catch (DbUpdateConcurrencyException ex)
             {

@@ -1,0 +1,43 @@
+﻿@model Models.System.User
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>User</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PassWord)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PassWord)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NickName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NickName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Level)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Level)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

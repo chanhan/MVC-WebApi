@@ -18,7 +18,7 @@ namespace WebApi
         {
             System.Data.Entity.Database.SetInitializer(new Service.WebAPiContextInitializer());
             AreaRegistration.RegisterAllAreas();
-     //       Session["user"] = new Models.User() { ID = 1, UserName = "Hello" };
+
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

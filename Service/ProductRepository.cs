@@ -8,7 +8,7 @@ namespace Service
 {
     using IService;
 
-    using Models;
+    using Models.Business;
     using System.Data;
 
     public class ProductRepository : IProductRepository

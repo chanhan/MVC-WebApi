@@ -1,0 +1,14 @@
+﻿@model Models.System.User
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+@using (@Html.BeginForm("Login", "Login", "POST"))
+{
+    @Html.TextBoxFor(m => m.UserName)
+
+    @Html.TextBoxFor(m => m.PassWord)
+    @Html.TextBox("", "登陆", new { type = "submit" })
+}

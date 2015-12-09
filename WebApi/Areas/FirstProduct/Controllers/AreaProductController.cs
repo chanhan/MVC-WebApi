@@ -11,7 +11,7 @@ using System.Web.Http;
 
 namespace WebApi.Areas.FirstProduct.Controllers
 {
-    using Models;
+    using Models.Business;
 
     using Service;
 
