@@ -1,0 +1,10 @@
+D:\Projects\WebApi\Models\bin\Debug\Models.dll
+D:\Projects\WebApi\Models\bin\Debug\Models.pdb
+D:\Projects\WebApi\Models\obj\Debug\Models.dll
+D:\Projects\WebApi\Models\obj\Debug\Models.pdb
+D:\bin\Models.dll
+D:\bin\Models.pdb
+E:\BaiduYunDownload\WebApi\Models\bin\Debug\Models.dll
+E:\BaiduYunDownload\WebApi\Models\bin\Debug\Models.pdb
+E:\BaiduYunDownload\WebApi\Models\obj\Debug\Models.dll
+E:\BaiduYunDownload\WebApi\Models\obj\Debug\Models.pdb
