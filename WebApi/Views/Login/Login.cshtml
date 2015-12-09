@@ -2,13 +2,17 @@
 
 @{
     ViewBag.Title = "Login";
+    Layout = null;
 }
 
-<h2>Login</h2>
+<h2 style="width:200px">登录</h2>
 @using (@Html.BeginForm("Login", "Login", "POST"))
 {
-    @Html.TextBoxFor(m => m.UserName)
-
-    @Html.TextBoxFor(m => m.PassWord)
-    @Html.TextBox("", "登陆", new { type = "submit" })
+    @:用户名
+    @Html.TextBoxFor(m => m.UserName, new { style = "line-height:50px;width:300px;margin:10px" })
+    <br />
+    @:密&nbsp;码
+    @Html.TextBoxFor(m => m.PassWord, new { style = "line-height:50px;width:300px;margin:10px" })
+    <br />
+    @Html.TextBox("btnlogin", "登陆", new { type = "submit", style = "height:50px;width:100px;font-size:xx-large" })
 }

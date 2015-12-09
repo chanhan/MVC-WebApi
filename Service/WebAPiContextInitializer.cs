@@ -11,6 +11,8 @@ namespace Service
     using IService;
 
     using Models.Business;
+    using Models.System;
+    using Models.EnumEntity;
 
     public  class WebAPiContextInitializer:DropCreateDatabaseIfModelChanges<WebApiContext>
     {
@@ -37,7 +39,12 @@ namespace Service
             context.Orders.Add(order);
             od.ForEach(o => context.OrderDetails.Add(o)); 
 
-            context.SaveChanges(); 
+            context.SaveChanges();
+
+            var user = new User() {  UserName="chenhan", NickName="听暖", Email="chen_han2008@sina.com", PassWord="123456", Gender=Gender.Male, Level=1};
+            context.Users.Add(user);
+
+            context.SaveChanges();
         }
     }
 }

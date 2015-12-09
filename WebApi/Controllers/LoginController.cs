@@ -14,7 +14,7 @@ namespace WebApi.Controllers
     public class LoginController : Controller
     {
         private WebApiContext db = new WebApiContext();
-
+        private IService.IRepository<User, int> userRep = new Repository<User, int>();
         //
         // GET: /Login/
 
@@ -24,10 +24,12 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(UserModel user)
+        public ActionResult Login(UserModel userModel)
         {
-
-            return View();
+            User user = userRep.GetAll().FirstOrDefault(r => r.UserName == userModel.UserName);
+            if (user != null) 
+                return Redirect(Url.Action("Index", "Home"));
+            return Redirect(Url.Action("Login", "Login"));
         }
 
         public ActionResult Index()
