@@ -12,7 +12,7 @@
     @Html.TextBoxFor(m => m.UserName, new { style = "line-height:50px;width:300px;margin:10px" })
     <br />
     @:密&nbsp;码
-    @Html.TextBoxFor(m => m.PassWord, new { style = "line-height:50px;width:300px;margin:10px" })
+    @Html.TextBoxFor(m => m.PassWord, new { style = "line-height:50px;width:300px;margin:10px",type="password" })
     <br />
     @Html.TextBox("btnlogin", "登陆", new { type = "submit", style = "height:50px;width:100px;font-size:xx-large" })
 }

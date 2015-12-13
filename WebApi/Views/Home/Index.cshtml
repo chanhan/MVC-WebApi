@@ -14,7 +14,7 @@
     $(document).ready(function () {
         // Send an AJAX request
         // 发送AJAX请求
-        $.getJSON("api/product/",
+        $.getJSON("/api/product/",
         function (data) {
             // On success, 'data' contains a list of products.
             // 成功时，'data'含有一组产品列表
@@ -30,7 +30,7 @@
     });
     function find() {
         var id = $('#prodId').val();
-        $.getJSON("api/product/" + id,
+        $.getJSON("/api/product/" + id,
             function (data) {
                 var str = data.ProductName + ': $' + data.Price;
                 $('#product').text(str);

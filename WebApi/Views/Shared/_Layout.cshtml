@@ -1,20 +1,28 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @* @Scripts.Render("~/bundles/modernizr")*@
     @Scripts.Render("~/bundles/jquery")
+
+    @using Common.ClassExpand;
+    @using Models.System;
+
+    @{
+        User user = this.ViewContext.Controller.ControllerContext.GetSession<User>("UserInfo");
+ }
 </head>
 <body>
     <header>
         <div class="content-wrapper">
             <div class="float-left">
                 <p class="site-title">
-                    <a href="~/">ASP.NET Web API</a></p>
+                    <a href="~/">ASP.NET Web API</a>
+                </p>
             </div>
             <div class="float-right">
                 <nav>
@@ -24,11 +32,16 @@
                     </ul>
                 </nav>
             </div>
+            <div class="float-right">
+                <span>欢迎你: @user.NickName</span>
+                <span>@Html.ActionLink("退出", "Logout", "Login")</span>
+            </div>
         </div>
+
     </header>
     @RenderBody()
 
-@*    @Scripts.Render("~/bundles/jquery")
-    @RenderSection("scripts", required: false)*@ 
+        @*@Scripts.Render("~/bundles/jquery")*@
+    @RenderSection("scripts", required: false)
 </body>
 </html>

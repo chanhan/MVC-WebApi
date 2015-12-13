@@ -296,6 +296,9 @@
     <Content Include="Views\Login\Edit.cshtml" />
     <Content Include="Views\Login\Delete.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Home\AllUser.cshtml" />
+    <Content Include="Views\Home\UserList.cshtml" />
+    <Content Include="Views\Home\ShowUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -307,6 +310,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{243771c9-fdb1-4678-939e-f3de97950a3d}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IService\IService.csproj">
       <Project>{465e374b-b672-4e14-a4c5-090268326361}</Project>
       <Name>IService</Name>

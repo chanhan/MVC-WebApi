@@ -27,5 +27,8 @@ namespace Service
 
         public DbSet<User> Users { get; set; }
 
+        public DbSet<AreaControllerAction> AreaControllerAction { get; set; }
+
+        public DbSet<AccessCaller> AccessCaller { get; set; }
     }
 }

@@ -8,22 +8,20 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using System.Collections;
+using IService;
+using Models.Business;
+using Service;
+using Common.Filters;
 
 namespace WebApi.Controllers
 {
-    using System.Collections;
-
-    using IService;
-
-    using Models.Business;
-
-    using Service;
-
     public class ProductController : ApiController
     {
         static readonly IRepository<Product, int> rep = new Repository<Product, int>();
 
         // GET api/Product
+        [CustomApiAuthorizationFilter]
         public IEnumerable<Product> GetAllProducts()
         {
             IEnumerable<Product> products = rep.GetAll();
@@ -60,8 +58,8 @@ namespace WebApi.Controllers
 
             try
             {
-                if (rep.Update(product) <= 0)  
-                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, product.ToString()); 
+                if (rep.Update(product) <= 0)
+                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, product.ToString());
                 return Request.CreateResponse(HttpStatusCode.OK);
             }
             catch (DbUpdateConcurrencyException ex)
@@ -75,7 +73,7 @@ namespace WebApi.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (rep.Add(product) <= 0) 
+                if (rep.Add(product) <= 0)
                     return Request.CreateErrorResponse(HttpStatusCode.NotFound, product.ToString());
                 HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, product);
                 response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = product.Id }));
