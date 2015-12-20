@@ -21,6 +21,12 @@ namespace WebApi.Controllers
         {
             return View();
         }
+        public ActionResult Product()
+        {
+            string apiUri = Url.HttpRouteUrl("DefaultApi", new { controller = "Product" });
+            ViewBag.ApiUrl = new Uri(Request.Url, apiUri).AbsoluteUri.ToString();
+            return View();
+        }
         public ActionResult AllUser()
         {
             return View();
@@ -54,6 +60,12 @@ namespace WebApi.Controllers
 
         public ActionResult Error() 
         {
+            return View();
+        }
+
+        public ActionResult Msg(string msg)
+        {
+            ViewBag.msg = msg;
             return View();
         }
     }

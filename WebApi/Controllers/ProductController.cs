@@ -58,7 +58,11 @@ namespace WebApi.Controllers
 
             try
             {
-                if (rep.Update(product) <= 0)
+                Product pro = rep.Get(id);
+                pro.Price = product.Price;
+                pro.ProductName = product.ProductName;
+                pro.ActualCost = product.ActualCost;
+                if (rep.Update(pro) <= 0)
                     return Request.CreateErrorResponse(HttpStatusCode.NotFound, product.ToString());
                 return Request.CreateResponse(HttpStatusCode.OK);
             }

@@ -51,9 +51,11 @@ namespace Common.Filters
         {
             //filterContext.HttpContext.Response.Redirect("~/Home/Error");
             ContentResult result = new ContentResult();
-            result.Content = "<script>alert('Unauthorized')</script>";
+             result.Content = "<script>alert('Unauthorized')</script>";
+             filterContext.Result = result;
+          //  filterContext.Controller.ViewBag.msg = "没有权限";
           //  result.ExecuteResult(filterContext.Controller.ControllerContext);
-            filterContext.Result = result;// new JavaScriptResult();
+          //  filterContext.Result = new RedirectResult("~/Home/Msg?msg=没有权限");// new JavaScriptResult();
         }
         private int GetLevel(AreaControllerAction areaControllerAction)
         {

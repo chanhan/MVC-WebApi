@@ -299,6 +299,8 @@
     <Content Include="Views\Home\AllUser.cshtml" />
     <Content Include="Views\Home\UserList.cshtml" />
     <Content Include="Views\Home\ShowUser.cshtml" />
+    <Content Include="Views\Shared\Msg.cshtml" />
+    <Content Include="Views\Home\Product.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
