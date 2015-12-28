@@ -14,3 +14,10 @@ E:\BaiduYunDownload\WebApi\IService\bin\Debug\Models.pdb
 E:\BaiduYunDownload\WebApi\IService\obj\Debug\IService.csprojResolveAssemblyReference.cache
 E:\BaiduYunDownload\WebApi\IService\obj\Debug\IService.dll
 E:\BaiduYunDownload\WebApi\IService\obj\Debug\IService.pdb
+D:\Projects\MVC-WebAPI\MVC-WebApi\IService\bin\Debug\IService.dll
+D:\Projects\MVC-WebAPI\MVC-WebApi\IService\bin\Debug\IService.pdb
+D:\Projects\MVC-WebAPI\MVC-WebApi\IService\bin\Debug\Models.dll
+D:\Projects\MVC-WebAPI\MVC-WebApi\IService\bin\Debug\Models.pdb
+D:\Projects\MVC-WebAPI\MVC-WebApi\IService\obj\Debug\IService.csprojResolveAssemblyReference.cache
+D:\Projects\MVC-WebAPI\MVC-WebApi\IService\obj\Debug\IService.dll
+D:\Projects\MVC-WebAPI\MVC-WebApi\IService\obj\Debug\IService.pdb

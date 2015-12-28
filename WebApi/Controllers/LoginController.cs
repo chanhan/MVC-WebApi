@@ -7,8 +7,8 @@ using System.Web;
 using System.Web.Mvc;
 using Models.System;
 using Service;
-using Models.System.ViewModel;
 using Common.ClassExpand;
+using Models.DTO;
 
 namespace WebApi.Controllers
 {
@@ -25,7 +25,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(UserModel userModel)
+        public ActionResult Login(UserDTO userModel)
         {
             if (ModelState.IsValid)
             {

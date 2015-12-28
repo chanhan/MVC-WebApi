@@ -11,7 +11,7 @@ namespace WebApi
         {
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
+                routeTemplate: "api/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
 
@@ -24,10 +24,10 @@ namespace WebApi
             // 有关详细信息，请参阅: http://www.asp.net/web-api
             config.EnableSystemDiagnosticsTracing();
 
-            //var json = config.Formatters.JsonFormatter;
-            //json.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
+            var json = config.Formatters.JsonFormatter;
+            json.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.None;
 
-            //config.Formatters.Remove(config.Formatters.XmlFormatter); 
+            config.Formatters.Remove(config.Formatters.XmlFormatter); 
         }
     }
 }

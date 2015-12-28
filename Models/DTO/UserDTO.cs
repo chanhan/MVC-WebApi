@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Models.System.ViewModel
+namespace Models.DTO
 {
-   public class UserModel
+   public class UserDTO
     {
        [Required]
        public string UserName { get; set; }
